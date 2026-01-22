@@ -191,25 +191,33 @@ a:hover {
 .nav {
     display: none;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+    flex-wrap: nowrap;
 }
 
 .nav-list {
     display: flex;
     list-style: none;
-    gap: var(--spacing-md);
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
     align-items: center;
     margin: 0;
     padding: 0;
+    flex-wrap: nowrap;
+}
+
+.nav-cta {
+    flex-shrink: 0;
+    margin-left: var(--spacing-sm);
 }
 
 .nav-link {
     color: var(--color-text);
     font-weight: 500;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     position: relative;
     transition: color var(--transition-base);
     white-space: nowrap;
+    display: block;
 }
 
 .nav-link:hover,
@@ -286,10 +294,14 @@ a:hover {
     white-space: normal;
 }
 
-.nav.mobile-open .btn {
+.nav.mobile-open .nav-cta {
     width: 100%;
     margin-top: var(--spacing-xs);
-    align-self: stretch;
+    margin-left: 0;
+}
+
+.nav.mobile-open .nav-cta .btn {
+    width: 100%;
 }
 
 /* ============================================
@@ -366,13 +378,19 @@ a:hover {
     position: relative;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--color-border);
+    border: 3px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-bg-light);
 }
 
-.headshot-placeholder svg {
+.headshot-placeholder img {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* ============================================
@@ -790,10 +808,17 @@ section h2 {
         display: flex;
         align-items: center;
         gap: var(--spacing-md);
+        flex: 1;
+        justify-content: flex-end;
     }
 
     .nav-list {
-        gap: clamp(1rem, 2vw, 2rem);
+        gap: clamp(0.75rem, 1.5vw, 1.25rem);
+        margin-right: 0;
+    }
+
+    .nav-cta {
+        margin-left: var(--spacing-md);
     }
 
     .header-content {
@@ -886,8 +911,16 @@ section h2 {
         gap: var(--spacing-lg);
     }
 
+    .nav {
+        gap: var(--spacing-lg);
+    }
+
     .nav-list {
-        gap: clamp(1.5rem, 2.5vw, 2.5rem);
+        gap: clamp(1rem, 2vw, 1.75rem);
+    }
+
+    .nav-cta {
+        margin-left: var(--spacing-lg);
     }
 
     .header-content {
@@ -909,7 +942,11 @@ section h2 {
 
 @media (min-width: 1200px) {
     .nav-list {
-        gap: 2.5rem;
+        gap: 2rem;
+    }
+
+    .nav-cta {
+        margin-left: 2rem;
     }
 }
 
