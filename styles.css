@@ -374,7 +374,7 @@ a:hover {
 
 .headshot-placeholder {
     width: 100%;
-    padding-bottom: 100%;
+    aspect-ratio: 1 / 1;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
@@ -390,7 +390,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
 }
 
 /* ============================================
@@ -506,41 +506,6 @@ section h2 {
     font-size: 0.9rem;
     color: var(--color-text-light);
     margin-bottom: 0;
-}
-
-/* ============================================
-   Facilities Section
-   ============================================ */
-
-.facilities-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
-.facility-card {
-    padding: var(--spacing-md);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    text-align: center;
-}
-
-.facility-card h3 {
-    margin-bottom: var(--spacing-xs);
-}
-
-.facility-card p {
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    margin-bottom: 0;
-}
-
-.facilities-note {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    font-style: italic;
 }
 
 /* ============================================
@@ -869,10 +834,6 @@ section h2 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .facilities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .testimonials-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -928,10 +889,6 @@ section h2 {
     }
 
     .focus-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .facilities-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
