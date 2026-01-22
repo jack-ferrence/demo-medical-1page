@@ -367,18 +367,27 @@ a:hover {
 .credibility-card {
     text-align: center;
     padding: var(--spacing-sm);
+    transition: transform var(--transition-base);
+}
+
+.credibility-card:hover {
+    transform: translateY(-2px);
 }
 
 .credibility-number {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: var(--color-primary);
     margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.5px;
 }
 
 .credibility-label {
     font-size: 0.875rem;
     color: var(--color-text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ============================================
@@ -407,6 +416,10 @@ section h2 {
 .about-content p {
     margin-bottom: var(--spacing-md);
     color: var(--color-text-light);
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================================
@@ -503,18 +516,25 @@ section h2 {
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 4px;
+    transition: box-shadow var(--transition-base);
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .testimonial-text {
     font-style: italic;
     color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
 }
 
 .testimonial-author {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.9rem;
     color: var(--color-text);
+    margin-top: var(--spacing-xs);
 }
 
 /* ============================================
