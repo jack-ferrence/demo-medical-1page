@@ -59,7 +59,8 @@ body {
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 var(--container-padding);
+    padding: 0 clamp(1rem, 4vw, 2rem);
+    width: 100%;
 }
 
 /* ============================================
@@ -145,6 +146,8 @@ a:hover {
 .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* ============================================
@@ -165,13 +168,20 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm) 0;
+    gap: var(--spacing-sm);
+    min-height: 60px;
+}
+
+.logo {
+    flex-shrink: 0;
 }
 
 .logo a {
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
     font-weight: 600;
     color: var(--color-text);
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .logo a:hover {
@@ -180,6 +190,8 @@ a:hover {
 
 .nav {
     display: none;
+    align-items: center;
+    gap: var(--spacing-md);
 }
 
 .nav-list {
@@ -187,14 +199,17 @@ a:hover {
     list-style: none;
     gap: var(--spacing-md);
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
     color: var(--color-text);
     font-weight: 500;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
     position: relative;
     transition: color var(--transition-base);
+    white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -220,6 +235,8 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .mobile-menu-toggle span {
@@ -243,25 +260,36 @@ a:hover {
 
 /* Mobile menu open state */
 .nav.mobile-open {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
-    padding: var(--spacing-sm) var(--container-padding);
+    padding: var(--spacing-md) var(--container-padding);
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav.mobile-open .nav-list {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--spacing-sm);
+    width: 100%;
+}
+
+.nav.mobile-open .nav-link {
+    padding: var(--spacing-sm) 0;
+    width: 100%;
+    white-space: normal;
 }
 
 .nav.mobile-open .btn {
     width: 100%;
     margin-top: var(--spacing-xs);
+    align-self: stretch;
 }
 
 /* ============================================
@@ -269,7 +297,7 @@ a:hover {
    ============================================ */
 
 .hero {
-    padding: var(--spacing-xl) 0;
+    padding: clamp(3rem, 8vw, 4rem) 0;
     background-color: var(--color-bg);
 }
 
@@ -353,7 +381,7 @@ a:hover {
 
 .credibility-strip {
     background-color: var(--color-bg-light);
-    padding: var(--spacing-md) 0;
+    padding: clamp(1.5rem, 4vw, 2rem) 0;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
 }
@@ -395,7 +423,7 @@ a:hover {
    ============================================ */
 
 section {
-    padding: var(--spacing-xl) 0;
+    padding: clamp(3rem, 8vw, 4rem) 0;
 }
 
 section h2 {
@@ -761,6 +789,15 @@ section h2 {
     .nav {
         display: flex;
         align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .nav-list {
+        gap: clamp(1rem, 2vw, 2rem);
+    }
+
+    .header-content {
+        gap: var(--spacing-md);
     }
 
     .mobile-menu-toggle {
@@ -845,12 +882,34 @@ section h2 {
         font-size: 3rem;
     }
 
+    .nav {
+        gap: var(--spacing-lg);
+    }
+
+    .nav-list {
+        gap: clamp(1.5rem, 2.5vw, 2.5rem);
+    }
+
+    .header-content {
+        gap: var(--spacing-lg);
+    }
+
     .focus-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
     .facilities-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ============================================
+   Large Desktop Styles (1200px and up)
+   ============================================ */
+
+@media (min-width: 1200px) {
+    .nav-list {
+        gap: 2.5rem;
     }
 }
 
